@@ -5,7 +5,7 @@ services:
     depends_on:
     - db
     environment:
-      DATABASE_URL: postgres://postgres:password@db:5432
+      DATABASE_URL: postgres://postgres:password@db:5432/askbot
     ports:
     - 8000:8000
   db:
