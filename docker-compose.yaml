@@ -1,0 +1,16 @@
+version: '2'
+services:
+  askbot:
+    build: ./askbot_site
+    depends_on:
+    - db
+    environment:
+      DATABASE_URL: postgres://postgres:password@db:5432
+    ports:
+    - 8000:8000
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      POSTGRES_DB: askbot
