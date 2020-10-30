@@ -7,6 +7,9 @@ verify_ssl = true
 
 [packages]
 askbo = {editable = true,git = "git@github.com/ASKBOT/askbot-devel.git"}
+dj-database-url = "*"
+whitenoise = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"

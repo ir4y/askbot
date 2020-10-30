@@ -23,17 +23,7 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(PROJECT_ROOT, 'db.sqlite'),                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',
-        'PORT': '',
-        'TEST': {
-            'CHARSET': 'utf8', # Setting the character set and collation to utf-8
-        }
-    }
+    'default': dj_database_url.config(),
 }
 
 #outgoing mail server settings
@@ -116,6 +106,7 @@ TEMPLATES = (
 )
 
 MIDDLEWARE = (
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',            # for csrf
     'django.contrib.sessions.middleware.SessionMiddleware', # prerequisite for user messages
     'django.contrib.messages.middleware.MessageMiddleware', # for user messages
